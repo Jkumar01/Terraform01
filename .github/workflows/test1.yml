@@ -5,15 +5,19 @@ on:
       - main
       - dev
       - production
+
   workflow_dispatch:
     inputs:
-      run_reason:
-        description: 'Reason for manual run'
-        required: false
-      environment:
-        description: 'Target environment'
-        required: false
+      target_branch:
+        description: 'Target Branch...'
+        type: choice
+        options:
+          - main
+          - dev
+          - production
+        required: true
         default: dev
+
 
 jobs:
   Test-Job:
