@@ -1,1 +1,28 @@
-name: Sample Terraform File
+name: Terraform Pipeline
+on:
+    push:
+        branches:
+            - dev
+            - stage
+            - production
+
+jobs:
+    Test-Job:
+        name: Sample Test Application.
+        runs-on:  ubuntu-latest
+
+        steps:
+            - name: Print Statements 01.
+              run: echo "Review the Print Statement 01..."
+
+            - name: Print Statements 02.
+              run: echo "Review the Print Statement 02..."
+
+            - name: Print Statements 03.
+              run: echo "Review the Print Statement 03..."
+
+            - name: Print Statements 04.
+              run: echo "Review the Print Statement 04..."
+
+            - name: Print Statements 05.
+              run: echo "Review the Print Statement 05..."
