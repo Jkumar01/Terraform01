@@ -1,0 +1,41 @@
+name: Terraform Deploy
+on:
+    push:
+        branches:
+            - main
+            - dev
+
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+    Terraform:
+        name: Terraform Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: Sample Print Statements
+              run: |
+                echo "Let us Deploy the Terraform Infrastructure..."
+              
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: arn:aws:iam::332665093871:role/GitHubActionsRole
+                  aws-region: ap-south-1
+                  audience: sts.amazonaws.com
+
+            - name: Verify AWS Identity
+              run: aws sts get-caller-identity
+
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: Setup Terraform
+              uses: hashicorp/setup-terraform@v3
+
+            - name: Terraform Init
+              run: terraform init
+
+            - name: Terraform Plan
+              run: terraform plan
