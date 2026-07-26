@@ -27,7 +27,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Configure AWS Credential.
-              uses: aws-actions/configure-aws-credentials@v4.1.0
+              uses: aws-actions/configure-aws-credentials@v4
               with:
                   role-to-assume: arn:aws:iam::332665093871:role/GitHubActionsRole
                   aws-region: ap-south-1
