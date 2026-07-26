@@ -31,6 +31,7 @@ jobs:
               with:
                   role-to-assume: arn:aws:iam::332665093871:role/GitHubActionsRole
                   aws-region: ap-south-1
+                  audience: sts.amazonaws.com
 
             - name: Verify AWS Identity.
               run: 
