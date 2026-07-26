@@ -14,7 +14,6 @@ jobs:
     Test-Job:
         name: Test AWS OIDC Connection
         runs-on: ubuntu-latest
-        environment: dev
         env:
             ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: ${{ vars.ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION }}
         steps:
