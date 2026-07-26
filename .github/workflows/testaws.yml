@@ -1,0 +1,37 @@
+name: Test AWS OIDC Connection
+on:
+    push:
+        branches:
+            - main
+            - dev
+            - produ
+    workflow_dispatch:
+        inputs:
+            target_branch:
+                description: 'Target Branch...'
+                type: choice
+                options:
+                    - main
+                    - dev
+                    - produ
+                required: true
+                default: dev
+
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+    Test-Job:
+        name: Test AWS OIDC Connection
+        runs-on: ubuntu-latest
+        steps:
+            - name: Configure AWS Credential.
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: arn:aws:iam::332665093871:role/GitHubActionsRole
+                  aws-region: ap-south-1
+
+            - name: Verify AWS Identity.
+              run: 
+                aws sts get-caller-identity
