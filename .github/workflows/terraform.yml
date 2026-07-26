@@ -39,17 +39,17 @@ jobs:
             - name: Terraform Init
               run: terraform init
 
-            - name: Terraform Import S3 Bucket
-              run: terraform import aws_s3_bucket.terraform_state cde-terraform-state-dev || true
+            #- name: Terraform Import S3 Bucket
+            #  run: terraform import aws_s3_bucket.terraform_state cde-terraform-state-dev || true
 
-            - name: Terraform Import S3 Versioning
-              run: terraform import aws_s3_bucket_versioning.versioning cde-terraform-state-dev || true
+            #- name: Terraform Import S3 Versioning
+            #  run: terraform import aws_s3_bucket_versioning.versioning cde-terraform-state-dev || true
 
-            - name: Terraform Import S3 Encryption
-              run: terraform import aws_s3_bucket_server_side_encryption_configuration.encryption cde-terraform-state-dev || true
+            #- name: Terraform Import S3 Encryption
+            #  run: terraform import aws_s3_bucket_server_side_encryption_configuration.encryption cde-terraform-state-dev || true
 
-            - name: Terraform Import DynamoDB Table
-              run: terraform import aws_dynamodb_table.terraform_locks terraform-locks || true
+            #- name: Terraform Import DynamoDB Table
+            #  run: terraform import aws_dynamodb_table.terraform_locks terraform-locks || true
 
             - name: Terraform Plan
               run: terraform plan
